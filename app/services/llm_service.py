@@ -50,7 +50,7 @@ def get_stock_analysis(symbol, question):
     return "Sorry, I couldn't analyze that stock at the moment."
 
 # Additional financial prompt templates
-def stock_recommendation_template(symbol):
+'''def stock_recommendation_template(symbol):
     """Template for stock buy/hold/sell recommendations"""
     return [
         {"role": "system", "content": "You are a financial assistant for Indian stock market investors."},
@@ -62,4 +62,4 @@ def sector_analysis_template(sector):
     return [
         {"role": "system", "content": "You are a financial assistant for Indian stock market investors."},
         {"role": "user", "content": f"Provide a brief analysis of the {sector} sector in the Indian market. Include recent trends and outlook."}
-    ]
+    ]'''
