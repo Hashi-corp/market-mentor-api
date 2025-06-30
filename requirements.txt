@@ -12,4 +12,3 @@ beautifulsoup4
 python-dotenv
 gradio
 torch
->>>>>>> 6262ae9e11ac9294deb9b2e2d10ace0f4b8e8be2
