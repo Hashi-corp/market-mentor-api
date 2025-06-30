@@ -63,9 +63,3 @@ def sector_analysis_template(sector):
         {"role": "system", "content": "You are a financial assistant for Indian stock market investors."},
         {"role": "user", "content": f"Provide a brief analysis of the {sector} sector in the Indian market. Include recent trends and outlook."}
     ]
-
-# Example usage
-if __name__ == "__main__":
-    messages = financial_prompt_template("RELIANCE.NS", "Who is the CEO?")
-    result = chat_with_groq(messages)
-    print(result)
