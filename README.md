@@ -1,6 +1,6 @@
 # Market Mentor API
 
-A FastAPI-based API for Indian stock market research and analysis, with LLM integration.
+A FastAPI-based API for Indian stock market research and analysis with LLM integration.
 
 ## Project Structure
 ```
@@ -79,7 +79,3 @@ Access the Gradio UI at http://localhost:7860
 - `/api/stocks/{symbol}` - Get stock information
 - `/api/news/{symbol}` - Get news for a stock
 - `/api/llm-query` - Query the LLM about a stock
-
-## License
-
-MIT
