@@ -2,6 +2,36 @@
 
 A FastAPI-based API for Indian stock market research and analysis, with LLM integration.
 
+## Project Structure
+```
+MARKET-MENTOR-API
+├── app
+│   ├── models
+│   │   ├── news_models.py
+│   │   ├── response_models.py
+│   │   └── stock_models.py
+│   ├── routes
+│   │   ├── llm.py
+│   │   ├── news.py
+│   │   └── stock.py
+│   ├── services
+│   │   ├── news_service.py
+│   │   ├── llm_service.py
+│   │   └── stock_service.py
+│   ├── utils
+│   │   ├── cache.py
+│   │   └── scraper.py
+│   ├── configs.py
+│   └── main.py
+├── frontend
+│   └── gradio_frontend.py
+├── .env
+├── .gitignore
+├── LICENSE
+├── README.md
+└── requirements.txt
+```
+
 ## Features
 
 - Stock information for Indian stocks (NSE/BSE)
@@ -12,7 +42,7 @@ A FastAPI-based API for Indian stock market research and analysis, with LLM inte
 
 1. Clone the repository:
 ```
-git clone https://github.com/yourusername/market-mentor-api.git
+git clone https://github.com/Hashi-corp/market-mentor-api.git
 cd market-mentor-api
 ```
 
