@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pydantic
+yfinance
+requests
+pandas
+transformers
+beautifulsoup4
+python-dotenv
+gradio
+torch
