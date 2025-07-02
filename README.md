@@ -12,7 +12,7 @@ Market Mentor is a real-time stock market research API and frontend designed for
 
 - 📈 **Stock Info**: Get comprehensive, real-time data for any NSE/BSE stock (price, market cap, volume, ranges, financial metrics, sector, etc.)
 - 📰 **News Summaries**: Aggregates and summarizes news from Economic Times, Moneycontrol, Business Standard, and Google News
-- 🤖 **Ask About Stock**: Ask any question about a stock and get an LLM-powered answer
+- 🤖 **Q/A on Stock data**: Ask any question about a stock and get an LLM-powered answer
 - 🖥️ **Gradio UI**: Clean, persistent, and responsive interface with side-by-side tables
 - ⚡ **FastAPI Backend**: Modular, production-ready API
 - 🗃️ **Planned Redis Integration**: Future-proofed for persistent, scalable caching
@@ -83,26 +83,7 @@ market-mentor-api/
 
 ---
 
-## Redis Integration (Coming Soon)
+## Redis Integration (in progress)
 - The project is designed to support Redis for persistent, scalable caching of stock data, news, and LLM responses.
 - The `app/utils/cache.py` utility is ready for Redis integration.
 - To enable Redis, simply run a Redis server and update your `.env` file with the correct connection details.
-
----
-
-## Contributing
-Pull requests and suggestions are welcome! Please open an issue or submit a PR.
-
----
-
-## License
-MIT License
-
----
-
-## Acknowledgements
-- [yfinance](https://github.com/ranaroussi/yfinance)
-- [Gradio](https://gradio.app/)
-- [FastAPI](https://fastapi.tiangolo.com/)
-- [Groq](https://groq.com/)
-- [Economic Times](https://economictimes.indiatimes.com/), [Moneycontrol](https://www.moneycontrol.com/), [Business Standard](https://www.business-standard.com/), [Google News](https://news.google.com/)
