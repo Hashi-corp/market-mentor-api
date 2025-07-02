@@ -53,6 +53,7 @@ uvicorn app.main:app --reload
 ```sh
 python frontend/gradio_frontend.py
 ```
+![image](https://github.com/user-attachments/assets/05d135f8-2551-4017-872d-6e15016e38da)
 
 ---
 
