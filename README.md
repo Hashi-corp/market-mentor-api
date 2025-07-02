@@ -74,8 +74,5 @@ python frontend/gradio_frontend.py
 
 Access the Gradio UI at http://localhost:7860
 
-## API Endpoints
-
-- `/api/stocks/{symbol}` - Get stock information
-- `/api/news/{symbol}` - Get news for a stock
-- `/api/llm-query` - Query the LLM about a stock
+## Frontend Sample
+![image](https://github.com/user-attachments/assets/388dc60d-0c1a-4ec1-88da-86c119daaf1d)
