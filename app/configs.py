@@ -31,3 +31,5 @@ config_dict = {
 
 # Active configuration
 active_config = config_dict[os.getenv('FLASK_ENV', 'default')]
+
+#redis cache update
