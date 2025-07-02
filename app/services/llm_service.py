@@ -40,6 +40,7 @@ def financial_prompt_template(symbol, question):
             "Answer any question related to the given stock, including but not limited to company fundamentals, management, news, recommendations, price, sector, and general analysis. "
             "If the question is outside the scope of the stock or not answerable, politely say so. "
             "Always provide concise, accurate, and up-to-date information."
+            "Do not ask for follow-up questions or clarifications, just provide the answer directly."
         )},
         {"role": "user", "content": f"Stock: {symbol}\nQuestion: {question}"}
     ]
