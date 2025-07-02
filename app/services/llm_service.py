@@ -10,8 +10,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if not GROQ_API_KEY:
     raise ValueError("GROQ_API_KEY environment variable is not set")
 
-GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"  # Replace with actual endpoint if different
-
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"  # API endpoint for Groq
 def chat_with_groq(messages, model="llama3-8b-8192"):
     """Send a chat request to Groq API"""
     headers = {
@@ -34,32 +33,22 @@ def chat_with_groq(messages, model="llama3-8b-8192"):
     return None
 
 def financial_prompt_template(symbol, question):
-    """Template for financial questions about stocks"""
+    """Universal template for any stock-related question"""
     return [
-        {"role": "system", "content": "You are a financial assistant for Indian stock market investors. Provide concise, accurate information about stocks listed on Indian exchanges (NSE/BSE). For factual questions about companies (like CEO, founders, etc.), provide precise, up-to-date information with their full names and titles."},
+        {"role": "system", "content": (
+            "You are a highly knowledgeable financial assistant for Indian stock market investors. "
+            "Answer any question related to the given stock, including but not limited to company fundamentals, management, news, recommendations, price, sector, and general analysis. "
+            "If the question is outside the scope of the stock or not answerable, politely say so. "
+            "Always provide concise, accurate, and up-to-date information."
+        )},
         {"role": "user", "content": f"Stock: {symbol}\nQuestion: {question}"}
     ]
 
 def get_stock_analysis(symbol, question):
-    """Get LLM analysis for a stock question"""
+    """Get LLM analysis for any stock question"""
     messages = financial_prompt_template(symbol, question)
     response = chat_with_groq(messages)
     
     if response and 'choices' in response:
         return response['choices'][0]['message']['content']
     return "Sorry, I couldn't analyze that stock at the moment."
-
-# Additional financial prompt templates
-def stock_recommendation_template(symbol):
-    """Template for stock buy/hold/sell recommendations"""
-    return [
-        {"role": "system", "content": "You are a financial assistant for Indian stock market investors."},
-        {"role": "user", "content": f"Provide a buy/hold/sell recommendation for {symbol} listed on NSE/BSE with brief reasoning."}
-    ]
-
-def sector_analysis_template(sector):
-    """Template for sector analysis"""
-    return [
-        {"role": "system", "content": "You are a financial assistant for Indian stock market investors."},
-        {"role": "user", "content": f"Provide a brief analysis of the {sector} sector in the Indian market. Include recent trends and outlook."}
-    ]
