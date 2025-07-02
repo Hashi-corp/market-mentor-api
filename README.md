@@ -1,77 +1,108 @@
-# Market Mentor API
+# Market Mentor: Indian Stock Market Research Assistant
 
-A FastAPI-based API for Indian stock market research and analysis with LLM integration.
+Market Mentor is a real-time stock market research API and frontend designed for Indian investors. It provides:
+- **Real-time stock information** (powered by yfinance)
+- **AI-powered news summarization** (using Groq LLM and top Indian financial RSS feeds)
+- **LLM-based Q&A** for any stock
+- **Professional, user-friendly Gradio frontend**
 
-## Project Structure
-```
-MARKET-MENTOR-API
-├── app
-│   ├── models
-│   │   ├── news_models.py
-│   │   ├── response_models.py
-│   │   └── stock_models.py
-│   ├── routes
-│   │   ├── llm.py
-│   │   ├── news.py
-│   │   └── stock.py
-│   ├── services
-│   │   ├── news_service.py
-│   │   ├── llm_service.py
-│   │   └── stock_service.py
-│   ├── utils
-│   │   ├── cache.py
-│   │   └── scraper.py
-│   ├── configs.py
-│   └── main.py
-├── frontend
-│   └── gradio_frontend.py
-├── .env
-├── .gitignore
-├── LICENSE
-├── README.md
-└── requirements.txt
-```
+---
 
 ## Features
 
-- Stock information for Indian stocks (NSE/BSE)
-- Stock news aggregation
-- LLM-powered stock analysis and research
+- 📈 **Stock Info**: Get comprehensive, real-time data for any NSE/BSE stock (price, market cap, volume, ranges, financial metrics, sector, etc.)
+- 📰 **News Summaries**: Aggregates and summarizes news from Economic Times, Moneycontrol, Business Standard, and Google News
+- 🤖 **Ask About Stock**: Ask any question about a stock and get an LLM-powered answer
+- 🖥️ **Gradio UI**: Clean, persistent, and responsive interface with side-by-side tables
+- ⚡ **FastAPI Backend**: Modular, production-ready API
+- 🗃️ **Planned Redis Integration**: Future-proofed for persistent, scalable caching
 
-## Installation
+---
 
-1. Clone the repository:
-```
-git clone https://github.com/Hashi-corp/market-mentor-api.git
+## Quick Start
+
+### 1. Clone the Repository
+```sh
+git clone <your-repo-url>
 cd market-mentor-api
 ```
 
-2. Install dependencies:
-```
+### 2. Install Dependencies
+```sh
 pip install -r requirements.txt
 ```
 
-3. Create a `.env` file with your API keys:
+### 3. Set Up Environment Variables
+Create a `.env` file in the root directory:
 ```
 GROQ_API_KEY=your_groq_api_key
+# (For future Redis integration)
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_DB=0
+REDIS_PASSWORD=
+REDIS_URL=redis://localhost:6379/0
 ```
 
-## Usage
-
-### Running the API
-
-```
+### 4. Run the Backend (FastAPI)
+```sh
 uvicorn app.main:app --reload
 ```
 
-Access the API documentation at http://localhost:8000/docs
-
-### Running the Gradio Frontend
-
-```
+### 5. Run the Frontend (Gradio)
+```sh
 python frontend/gradio_frontend.py
 ```
 
-Access the Gradio UI at http://localhost:7860
+---
 
-![image](https://github.com/user-attachments/assets/388dc60d-0c1a-4ec1-88da-86c119daaf1d)
+## Project Structure
+```
+market-mentor-api/
+├── app/
+│   ├── main.py            # FastAPI entrypoint
+│   ├── configs.py         # Configuration & env
+│   ├── models/            # Pydantic models
+│   ├── routes/            # API endpoints
+│   ├── services/          # Business logic (stock, news, LLM)
+│   └── utils/             # Utilities (cache, etc.)
+├── frontend/
+│   └── gradio_frontend.py # Gradio UI
+├── requirements.txt
+├── .env
+└── README.md
+```
+
+---
+
+## API Overview
+
+- `GET /api/stocks/{symbol}`: Real-time stock info
+- `GET /api/news/{symbol}`: Summarized news for a stock
+- `POST /api/llm-query`: Ask any question about a stock
+
+---
+
+## Redis Integration (Coming Soon)
+- The project is designed to support Redis for persistent, scalable caching of stock data, news, and LLM responses.
+- The `app/utils/cache.py` utility is ready for Redis integration.
+- To enable Redis, simply run a Redis server and update your `.env` file with the correct connection details.
+
+---
+
+## Contributing
+Pull requests and suggestions are welcome! Please open an issue or submit a PR.
+
+---
+
+## License
+MIT License
+
+---
+
+## Acknowledgements
+- [yfinance](https://github.com/ranaroussi/yfinance)
+- [Gradio](https://gradio.app/)
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [Groq](https://groq.com/)
+- [Economic Times](https://economictimes.indiatimes.com/), [Moneycontrol](https://www.moneycontrol.com/), [Business Standard](https://www.business-standard.com/), [Google News](https://news.google.com/)
