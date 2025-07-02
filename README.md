@@ -74,5 +74,4 @@ python frontend/gradio_frontend.py
 
 Access the Gradio UI at http://localhost:7860
 
-## Frontend Sample
 ![image](https://github.com/user-attachments/assets/388dc60d-0c1a-4ec1-88da-86c119daaf1d)
